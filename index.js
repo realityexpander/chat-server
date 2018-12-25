@@ -23,5 +23,5 @@ http.listen(port, function () {
 });
 
 setInterval(function () {
-  io.emit('chat message', Date())
+  io.emit('chat message', Date() + " => " + Math.trunc(Math.random() * 500))
 }, 5000)
