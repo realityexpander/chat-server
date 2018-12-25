@@ -73,11 +73,12 @@
       });
       socket.on('chat message', function (msg) {
         $('#messages').append($('<li>').text(msg));
-        window.scrollTo(0, document.body.scrollHeight);
-        if (msg.indexOf("eval:") >= 0) {
-          let code = msg.split(":")[1];
-          eval(code)
+
+        if (msg.indexOf("eval!") >= 0) {
+          let code = msg.split("!")[1];
+          $('#messages').append($('<li>').text("EVAL!: " + code + "->" + eval(code)));
         }
+        window.scrollTo(0, document.body.scrollHeight);
       });
     });
   </script>
