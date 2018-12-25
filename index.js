@@ -8,12 +8,13 @@ app.get('/', function (req, res) {
 });
 
 io.on('connection', function (socket) {
-  console.log('user connected');
+  console.log('user connected', socket.client.id);
   socket.on('chat message', function (msg) {
+    console.log("from:", this.conn.id, ":", msg)
     io.emit('chat message', msg);
   });
   socket.on('disconnect', function () {
-    console.log('user disconnected');
+    console.log('user disconnected', arguments);
   });
 });
 
