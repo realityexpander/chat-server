@@ -7,6 +7,6 @@
     "socket.io": "^1.7.3"
   },
   "scripts": {
-    "start": "nodemon --inspect index.js"
+    "start": "nodemon --inspect=0.0.0.0:3001 index.js"
   }
 }
